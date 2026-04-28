@@ -1,0 +1,447 @@
+h1, p, h2, h3, h4{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: var(--text-color);
+}
+/*intro*/
+.intro{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	background:  #D56989;
+	transition: 1s;
+}
+.intro img {
+    position: relative; 
+    top: 0;
+    width: 25%; 
+    margin-bottom: 1px; 
+}
+.intro p{
+	color:gray;
+	font-size: 1.6rem;
+	margin-top:10px;
+}
+.logo {
+	font-size: 2.5rem;
+	color: White;
+}
+.logo-parts{
+	position: relative;
+	display: inline-block;
+	bottom: -20px;
+	opacity: 0;
+}
+.logo-parts.active{
+	bottom: 0;
+	opacity: 1;
+	transition: ease-in-out.5s;
+}
+.logo-parts.fade{
+	bottom:250px;
+	opacity:0;
+	transition: ease-in-out.5s;
+}
+.content{
+	width:100%;
+	padding: 50px;
+	font-size:2rem;
+}
+#btn-iniciar {
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-top: 30px;
+    border-radius: 50px; /* Redondeado bonito */
+    border: none;
+    background-color: white;
+    color: #D56989; /* El color de tu intro */
+    font-weight: bold;
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+#btn-iniciar:hover {
+    transform: scale(1.1);
+    background-color: #f0f0f0;
+}
+/*BOTON CAMBIAR DE DARK-LIGTH Y VICE*/
+.div-boton{
+    display: grid;
+    place-items: center;
+    min-height: 50px;
+    width: 100%;
+}
+.switch {
+  display: block;
+  background-color: black;
+  width: 85px;
+  height: 99px;
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2), 0 0 1px 2px black, inset 0 2px 2px -2px white, inset 0 0 2px 15px #47434c, inset 0 0 2px 22px black;
+  border-radius: 5px;
+  padding: 20px;
+  perspective: 700px;
+}
+
+.switch input {
+  display: none;
+}
+
+.switch input:checked + .button {
+  transform: translateZ(20px) rotateX(25deg);
+  box-shadow: 0 -10px 20px #ff1818;
+}
+
+.switch input:checked + .button .light {
+  animation: flicker 0.2s infinite 0.3s;
+}
+
+.switch input:checked + .button .shine {
+  opacity: 1;
+}
+
+.switch input:checked + .button .shadow {
+  opacity: 0;
+}
+
+.switch .button {
+  display: block;
+  transition: all 0.3s cubic-bezier(1, 0, 1, 1);
+  transform-origin: center center -20px;
+  transform: translateZ(20px) rotateX(-25deg);
+  transform-style: preserve-3d;
+  background-color: #9b0621;
+  height: 100%;
+  position: relative;
+  cursor: pointer;
+  background: linear-gradient(#980000 0%, #6f0000 30%, #6f0000 70%, #980000 100%);
+  background-repeat: no-repeat;
+}
+
+.switch .button::before {
+  content: "";
+  background: linear-gradient(rgba(255, 255, 255, 0.8) 10%, rgba(255, 255, 255, 0.3) 30%, #650000 75%, #320000) 50% 50%/97% 97%, #b10000;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 50px;
+  transform-origin: top;
+  transform: rotateX(-90deg);
+  position: absolute;
+  top: 0;
+}
+
+.switch .button::after {
+  content: "";
+  background-image: linear-gradient(#650000, #320000);
+  width: 100%;
+  height: 50px;
+  transform-origin: top;
+  transform: translateY(50px) rotateX(-90deg);
+  position: absolute;
+  bottom: 0;
+  box-shadow: 0 50px 8px 0px black, 0 80px 20px 0px rgba(0, 0, 0, 0.5);
+}
+
+.switch .light {
+  opacity: 0;
+  animation: light-off 1s;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(#ffc97e, #ff1818 40%, transparent 70%);
+}
+
+.switch .dots {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(transparent 30%, rgba(101, 0, 0, 0.7) 70%);
+  background-size: 10px 10px;
+}
+
+.switch .characters {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(white, white) 50% 20%/5% 20%, radial-gradient(circle, transparent 50%, white 52%, white 70%, transparent 72%) 50% 80%/33% 25%;
+  background-repeat: no-repeat;
+}
+
+.switch .shine {
+  transition: all 0.3s cubic-bezier(1, 0, 1, 1);
+  opacity: 0.3;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(white, transparent 3%) 50% 50%/97% 97%, linear-gradient(rgba(255, 255, 255, 0.5), transparent 50%, transparent 80%, rgba(255, 255, 255, 0.5)) 50% 50%/97% 97%;
+  background-repeat: no-repeat;
+}
+
+.switch .shadow {
+  transition: all 0.3s cubic-bezier(1, 0, 1, 1);
+  opacity: 1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(transparent 70%, rgba(0, 0, 0, 0.8));
+  background-repeat: no-repeat;
+}
+
+@keyframes flicker {
+  0% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 0.8;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes light-off {
+  0% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 0;
+  }
+}
+
+/*HEADER*/
+header{
+    margin: 0;
+    padding: 0;
+}
+.title-header{
+    display: block;
+    justify-content: end;
+    text-align: end;
+}
+
+
+/*RESPONSIVE*/
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+:root {
+  /* Colores del Modo Claro (Default) */
+  --bg-color: #EA9CAF;
+  --text-color: White;
+  --div-poem-bg: #D56989;
+  --album-list-bg: #FF7099;
+  --album-text: rgba(255, 255, 255, 0.6);
+  --banner-bg: url('../image/Gemini_Generated_Image_2jjuyh2jjuyh2jju.png');
+}
+
+.dark-mode {
+  /* Colores del Modo Oscuro */
+  --bg-color: #121212;
+  --text-color: #ffffff;
+  --div-poem-bg: #303633;
+  --album-list-bg: #303633;
+  --album-text: #cccccc;
+  --banner-bg: url('../image/gemini2.png');
+}
+
+body {
+  line-height: 1.6;
+  background-color: var(--bg-color); 
+  color: var(--text-color);          
+  transition: background-color 0.4s ease, color 0.4s ease; /* Transición suave */
+  display: flex;
+  flex-direction: column;
+}
+body::-webkit-scrollbar {
+    display: none;
+}
+@media (min-width: 768px) {
+    .album_list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (min-width: 1024px) {
+    .album_list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+.gif-flower{
+  width: 80px;
+  display: block;
+  align-content: center;
+}
+/*SCROLL*/
+.scroll-driven-body {
+  padding-bottom: 20vh; /* Espacio extra al final para ver la última animación */
+  
+}
+.div-poem {
+  text-align: center;
+  background-color: var(--div-poem-bg); 
+  padding: 3%;
+  border-radius: 3%;
+}
+.bottom-content, 
+.div-poem, 
+.container, 
+.album_list,
+main,
+footer {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* Si quieres espacio entre secciones (ya que eliminamos el gap del body) */
+section, .div-container, .scroll-driven-body {
+    margin-top: 3rem;
+}
+.scroll-driven-body .figure {
+  position: sticky;
+  top: 15vh; 
+  animation-timeline: scroll(block root);
+  animation-range: entry 10% cover 50%; 
+  animation-name: rotate-scroll;
+  animation-fill-mode: both;
+  box-shadow: 10px 10px 50px 2px rgba(0,0,0,0.75);
+  
+}
+.scroll-driven-body .figure:nth-of-type(1) { --rotation: 3deg; }
+.scroll-driven-body .figure:nth-of-type(2) { --rotation: -3deg; }
+.scroll-driven-body .figure:nth-of-type(3) { --rotation: 2deg; }
+@keyframes rotate-scroll {
+  from {
+    transform: rotate(0deg) scale(0.9);
+    opacity: 0.5; 
+  }
+  to {
+    transform: rotate(var(--rotation)) scale(1);
+    opacity: 1;
+  }
+}
+/*END SCROLL*/
+.nota-text{
+  font-size: 60%;
+  margin: 20px;
+  padding: 30px;
+  align-items: center;
+}
+
+/*CONTAINER MUSIC*/
+/* 1. EL BANNER FULL-BLEED CON LA IMAGEN FIJA */
+.banner-full-bleed {
+    width: 100%; /* 100% del ancho de la ventana */
+    height: 60vh; /* Altura de la sección, por ejemplo, 60% de la ventana */
+    
+    background-image: var(--banner-bg); /* Reemplaza con la ruta de tu foto de puesta de sol */
+    background-size: cover; /* Cubre todo el contenedor */
+    background-position: center; /* Centra la imagen */
+    background-attachment: fixed; /* LA CLAVE: la imagen se queda fija al hacer scroll */
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    transition: background-image 0.5s ease-in-out;
+}
+.content-wrapper {
+    /* Esto crea un contenedor transparente sobre la imagen para centrar y estilizar el texto */
+    padding: 40px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto; /* Lo centra horizontalmente */
+}
+.title-header{
+  margin: 0;
+  padding: 0;
+}
+.contenido-texto {
+    /* Espaciado para que el texto no esté pegado a los bordes */
+    padding: 40px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+a{
+    text-decoration: none;
+    color: rgba(255,255,255,.6);
+}
+.div-container{
+    padding: 10px;
+}
+.container-title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.container{
+
+    box-sizing: inherit;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.album_list{
+    display: grid;
+    flex-direction: row;
+    gap: 20px;
+    padding: 1rem;
+    margin-left: 2%;
+    margin-top:0;
+    margin-right: 2%;
+    margin-bottom: 2%;
+    background-color: var(--album-list-bg);
+    border-radius: 2%;
+    grid-template-columns: repeat(3, 1fr);
+
+}
+.album_info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2px 0;
+}
+.album_title{
+    h1 {
+      font-size: 1rem;
+      margin-bottom: 5px;
+      color: white;
+    }
+    
+    h2 {
+    font-size: .8rem;
+    color: var(--album-text);
+    }
+}
+.album_art{
+    position: relative;
+    transition: .4s;
+    position: relative;
+    overflow: hidden;
+}img{
+    max-width: 80%;
+    height: auto;
+    border-radius: inherit;
+    display: block;
+}
+/*END CONTAINER MUSIC*/
+::-webkit-scrollbar {
+    display: none;
+}
