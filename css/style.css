@@ -75,6 +75,7 @@ h1, p, h2, h3, h4{
     place-items: center;
     min-height: 50px;
     width: 100%;
+    padding-bottom: 50px;
 }
 .switch {
   display: block;
@@ -439,9 +440,47 @@ a{
     max-width: 80%;
     height: auto;
     border-radius: inherit;
-    display: block;
+    display: block; 
 }
 /*END CONTAINER MUSIC*/
 ::-webkit-scrollbar {
     display: none;
+}
+/*section segundo poemas*/
+.section-poemas{
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 150px);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 150px);
+  background-color: black;
+}
+.mp4{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.poema-section1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+
+}
+.poema-section2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.our-foto{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+.our-foto img{
+  width: 30%;
+}
+.spotify{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
 }
