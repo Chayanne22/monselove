@@ -261,7 +261,7 @@ body {
   transition: background-color 0.4s ease, color 0.4s ease; /* Transición suave */
   display: flex;
   flex-direction: column;
-}
+  }
 body::-webkit-scrollbar {
     display: none;
 }
@@ -483,4 +483,15 @@ a{
   justify-content: center;
   align-items: center;
   margin-bottom: 10px;
+}
+.dhbody{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.inner{
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 150px);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 150px);
+  background-color: rgb(19, 19, 58);
 }
